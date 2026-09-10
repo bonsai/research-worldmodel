@@ -1,0 +1,76 @@
+experiment: EXP-001
+status: evaluated
+scale:
+  0: no added information
+  1: terminology clarification only
+  2: meaningful boundary exposed
+  3: classification or comparison changes
+  4: generates new research/interoperability value
+systems:
+  - id: dreamer-v3
+    baseline: "model-based RL / imagination-based dynamics model"
+    view_ontology:
+      physical: 2
+      interface: 2
+      cognition: 2
+      data: 1
+      symbolic: 0
+      view_boundary: 3
+    strongest_gain: "Separates environment, observation/action interface, latent model and imagined rollout."
+    strongest_risk: "Cognition is an interpretive mapping rather than native terminology."
+
+  - id: v-jepa
+    baseline: "latent predictive video representation"
+    view_ontology:
+      physical: 1
+      interface: 1
+      cognition: 2
+      data: 1
+      symbolic: 0
+      view_boundary: 2
+    strongest_gain: "Clarifies that predictive representation is a model of observed video rather than the physical world itself."
+    strongest_risk: "Cognition may collapse into representation without an independent criterion."
+
+  - id: v-jepa-2
+    baseline: "latent predictive world model with action-conditioned planning"
+    view_ontology:
+      physical: 2
+      interface: 3
+      cognition: 3
+      data: 1
+      symbolic: 1
+      view_boundary: 3
+    strongest_gain: "Makes passive observation, action interface and planning boundary explicit."
+    strongest_risk: "Language alignment may be mistaken for constitutive symbolic representation."
+
+  - id: genie
+    baseline: "generative interactive environment / action-conditioned video model"
+    view_ontology:
+      physical: 3
+      interface: 4
+      cognition: 2
+      data: 1
+      symbolic: 2
+      view_boundary: 4
+    strongest_gain: "Strongly distinguishes source world, observed data, learned dynamics, generated environment and interaction interface."
+    strongest_risk: "Generated environment may itself be treated as a world by downstream users, creating a terminology problem rather than a formal one."
+
+  - id: embodied-world-model-survey
+    baseline: "internal simulator supporting perception, prediction, decision and counterfactual rollout"
+    view_ontology:
+      physical: 2
+      interface: 3
+      cognition: 3
+      data: 1
+      symbolic: 0
+      view_boundary: 3
+    strongest_gain: "Separates external environment from agent interface and internal predictive/cognitive functions."
+    strongest_risk: "Survey taxonomy is broad, so the ontology may merely rename existing functional distinctions."
+
+preliminary_evaluation:
+  baseline_taxonomy_strength: 4
+  view_ontology_added_value: 2
+  overall: "partial_support"
+  interpretation: "The View-Based ontology adds the most value at boundary analysis, especially World/Interface/Model distinctions. It does not yet outperform native taxonomies for categorizing model architectures."
+  falsification_status: "not_falsified"
+  next_test: "Search counterexamples where Physical/Interface/Cognition/Data/Symbolic produces less clarity than the native taxonomy or collapses into it."
