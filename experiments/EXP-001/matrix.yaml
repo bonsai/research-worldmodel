@@ -1,5 +1,5 @@
 experiment: EXP-001
-status: proposed
+status: evidence-collected
 layers:
   - physical
   - interface
@@ -9,32 +9,109 @@ layers:
 systems:
   - id: dreamer
     family: model-based-rl
-    mappings: {}
-    ambiguities: []
-    failures: []
+    source_terminology:
+      world_model: "learned model of the environment"
+      inputs: "sensory inputs / experiences"
+      dynamics: "predicts future representations and rewards given actions"
+      action: "actions"
+    mappings:
+      physical: "environment/world being modeled; physicality is task-dependent and not explicitly ontologized"
+      interface: "sensory inputs and actions form the observation/action boundary"
+      cognition: "latent representations used for prediction and imagined trajectories; cognition is not explicitly separated"
+      data: "experience trajectories and sensory inputs used for learning"
+      symbolic: null
+    ambiguities:
+      - "The paper does not define a separate cognition layer; latent representation is a model construct."
+      - "Physical world and environment are operationally conflated."
+    failures:
+      - "symbolic layer is not required by the native formulation"
+    confidence: medium
+    source: "Hafner et al., DreamerV3, arXiv:2301.04104"
+
   - id: jepa
     family: latent-predictive
-    mappings: {}
-    ambiguities: []
-    failures: []
+    source_terminology:
+      objective: "feature prediction"
+      representation: "latent video features"
+      observation: "video"
+    mappings:
+      physical: "visual world dynamics present in video; physical ontology is implicit"
+      interface: "camera/video stream is the effective observational interface"
+      cognition: "learned feature representations that capture motion and appearance structure"
+      data: "2 million videos used for self-supervised learning"
+      symbolic: null
+    ambiguities:
+      - "Feature representation should not automatically be equated with cognition."
+      - "No explicit symbolic layer is required."
+    failures:
+      - "symbolic layer absent from the native objective"
+    confidence: medium
+    source: "Bardes et al., V-JEPA, arXiv:2404.08471"
+
   - id: v-jepa-2
     family: latent-predictive-embodied
-    mappings: {}
-    ambiguities: []
+    source_terminology:
+      pretraining: "action-free self-supervised video learning"
+      world_model: "latent action-conditioned world model V-JEPA 2-AC"
+      action: "robot trajectories / latent actions"
+      planning: "image-goal planning"
+    mappings:
+      physical: "physical world of robot manipulation"
+      interface: "robot video observations and robot action trajectories"
+      cognition: "latent predictive representations used for understanding, prediction and planning"
+      data: "over 1 million hours of internet video plus less than 62 hours of unlabeled robot videos"
+      symbolic: "language-aligned video understanding is present, but symbolic structure is not the core world-model representation"
+    ambiguities:
+      - "Language alignment does not imply that symbolic representation is a constitutive world-model layer."
+      - "Interface includes both passive video observation and active robot interaction."
     failures: []
+    confidence: high
+    source: "Assran et al., V-JEPA 2, arXiv:2506.09985"
+
   - id: genie
     family: interactive-generative-environment
-    mappings: {}
-    ambiguities: []
+    source_terminology:
+      world_model: "generative interactive environment"
+      components: "spatiotemporal video tokenizer, autoregressive dynamics model, latent action model"
+      inputs: "unlabelled Internet videos"
+      action: "latent actions / frame-by-frame interaction"
+    mappings:
+      physical: "source visual environments represented in video; generated world is a model rather than physical reality"
+      interface: "text, images, photographs, sketches as conditioning; frame-level latent actions as interaction interface"
+      cognition: "latent action and dynamics representations mediate interaction; no explicit cognition layer"
+      data: "unlabelled Internet videos"
+      symbolic: "text conditioning is an explicit symbolic input modality"
+    ambiguities:
+      - "Generated interactive environment is itself a model/view, making world-versus-model boundary especially important."
+      - "Text conditioning is symbolic interface, not necessarily symbolic internal state."
     failures: []
+    confidence: high
+    source: "Bruce et al., Genie, arXiv:2402.15391"
+
   - id: embodied-world-model
     family: embodied-ai
-    mappings: {}
-    ambiguities: []
-    failures: []
+    source_terminology:
+      role: "internal simulator of environment dynamics"
+      functions: "perception, prediction, decision making, forward and counterfactual rollouts"
+      representation: "global latent vector, token feature sequence, spatial latent grid, decomposed rendering representation"
+    mappings:
+      physical: "environment/world dynamics relevant to embodied agents"
+      interface: "agent perception and action channels are central to decision-coupled models"
+      cognition: "prediction, perception, decision making and counterfactual reasoning"
+      data: "sensory observations, trajectories, datasets and task signals"
+      symbolic: null
+    ambiguities:
+      - "Survey taxonomy is functional and representational rather than explicitly epistemic."
+      - "Cognition is inferred from the stated functions and should be treated as a mapping, not native terminology."
+    failures:
+      - "symbolic layer is not a necessary component of the surveyed world-model definition"
+    confidence: medium
+    source: "Li et al., A Comprehensive Survey on World Models for Embodied AI, arXiv:2510.16732"
 
 rules:
   - Never infer a layer merely because a concept sounds similar.
   - Record source terminology before ontology mapping.
   - Separate observation from interpretation.
   - Empty mapping is valid evidence.
+  - Mapping confidence must be explicit.
+  - Native terminology has priority over ontology terminology.
