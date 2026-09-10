@@ -1,0 +1,73 @@
+experiment: EXP-001
+status: collected
+purpose: "Normalize heterogeneous World Model families before ontology evaluation."
+records:
+  - id: WM-001
+    system: dreamer-v3
+    family: model-based-rl
+    primary_source: https://arxiv.org/abs/2301.04104
+    observation: "DreamerV3 learns an environment model and improves behavior by imagining future scenarios."
+    ontology_relevance:
+      physical: "environment being modeled"
+      interface: "sensory inputs and actions"
+      cognition: "latent representations and imagined trajectories"
+      data: "experience trajectories"
+      symbolic: null
+    evidence_status: source-reported
+
+  - id: WM-002
+    system: v-jepa
+    family: latent-predictive
+    primary_source: https://arxiv.org/abs/2404.08471
+    observation: "V-JEPA learns visual representations by predicting latent video features from masked spatiotemporal context."
+    ontology_relevance:
+      physical: "visual dynamics represented in video"
+      interface: "video observation stream"
+      cognition: "learned latent feature representation"
+      data: "video corpus"
+      symbolic: null
+    evidence_status: source-reported
+
+  - id: WM-003
+    system: v-jepa-2
+    family: latent-predictive-embodied
+    primary_source: https://arxiv.org/abs/2506.09985
+    observation: "V-JEPA 2 combines web-scale video pretraining with an action-conditioned latent world model for robotic planning."
+    ontology_relevance:
+      physical: "physical robot manipulation world"
+      interface: "video observations and robot trajectories"
+      cognition: "understanding, prediction and planning representations"
+      data: "internet video and robot video"
+      symbolic: "language-aligned downstream interface, not clearly constitutive"
+    evidence_status: source-reported
+
+  - id: WM-004
+    system: genie
+    family: interactive-generative-environment
+    primary_source: https://arxiv.org/abs/2402.15391
+    observation: "Genie learns an interactive generative environment from unlabelled Internet video using a video tokenizer, dynamics model and latent action model."
+    ontology_relevance:
+      physical: "source environments represented in video"
+      interface: "conditioning modalities and latent actions"
+      cognition: "latent dynamics/action representations"
+      data: "unlabelled Internet video"
+      symbolic: "text can condition generated environments"
+    evidence_status: source-reported
+
+  - id: WM-005
+    system: embodied-world-model-survey
+    family: embodied-ai
+    primary_source: https://arxiv.org/abs/2510.16732
+    observation: "The survey frames world models as internal simulators supporting perception, prediction, decision making and forward/counterfactual rollouts."
+    ontology_relevance:
+      physical: "environment dynamics"
+      interface: "perception/action channels"
+      cognition: "prediction, perception and decision making"
+      data: "sensory observations and trajectories"
+      symbolic: null
+    evidence_status: source-reported
+
+research_discipline:
+  - "A mapping is an interpretation of source terminology, not evidence that the source adopts the ontology."
+  - "Source-reported facts and ontology interpretations must remain distinguishable."
+  - "A null symbolic mapping is a result, not a defect."
