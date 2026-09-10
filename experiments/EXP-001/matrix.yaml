@@ -1,0 +1,40 @@
+experiment: EXP-001
+status: proposed
+layers:
+  - physical
+  - interface
+  - cognition
+  - data
+  - symbolic
+systems:
+  - id: dreamer
+    family: model-based-rl
+    mappings: {}
+    ambiguities: []
+    failures: []
+  - id: jepa
+    family: latent-predictive
+    mappings: {}
+    ambiguities: []
+    failures: []
+  - id: v-jepa-2
+    family: latent-predictive-embodied
+    mappings: {}
+    ambiguities: []
+    failures: []
+  - id: genie
+    family: interactive-generative-environment
+    mappings: {}
+    ambiguities: []
+    failures: []
+  - id: embodied-world-model
+    family: embodied-ai
+    mappings: {}
+    ambiguities: []
+    failures: []
+
+rules:
+  - Never infer a layer merely because a concept sounds similar.
+  - Record source terminology before ontology mapping.
+  - Separate observation from interpretation.
+  - Empty mapping is valid evidence.
