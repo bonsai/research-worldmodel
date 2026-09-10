@@ -1,0 +1,49 @@
+version: 0.1
+name: research-asset
+purpose: Reusable research artifact with provenance and executable lineage.
+
+objects:
+  research_asset:
+    required: [id, type, status, provenance]
+  provenance:
+    required: [source, produced_by, produced_at]
+  research_work:
+    required: [id, question_or_gap]
+  outcome:
+    required: [id, status]
+  evidence:
+    required: [id, polarity]
+
+asset_types:
+  - corpus_record
+  - mapping
+  - comparison_matrix
+  - protocol
+  - observation
+  - evidence
+  - counterexample
+  - evaluation
+  - thesis_revision
+  - dataset
+  - schema
+  - reproducible_result
+
+relations:
+  - work_produces_asset
+  - asset_derived_from
+  - asset_supports
+  - asset_refutes
+  - asset_qualifies
+  - asset_updates
+  - asset_reused_by
+  - outcome_produces_evidence
+
+lineage:
+  canonical: KnowledgeState → Gap → Work → Job → Task → Action → Outcome → Evidence → Asset → KnowledgeState
+
+rules:
+  - no_asset_without_provenance
+  - no_thesis_update_without_evidence
+  - counterexamples_are_assets
+  - failed_or_inconclusive_work_remains_traceable
+  - asset_ids_are_stable
