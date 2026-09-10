@@ -1,0 +1,64 @@
+version: 0.1
+name: worldmodel-research-lab
+purpose: Structured representation of research questions, World Model systems, experiments, evidence, and thesis revisions.
+
+objects:
+  research_question:
+    required: [id, question, status]
+  hypothesis:
+    required: [id, statement, kind]
+  world_model:
+    required: [id, name, family]
+  view:
+    required: [id, subject, boundary]
+  experiment:
+    required: [id, question, hypothesis, method, status]
+  observation:
+    required: [id, experiment, statement]
+  evidence:
+    required: [id, source, observation, polarity]
+  counterexample:
+    required: [id, claim, observation]
+  thesis_revision:
+    required: [id, thesis, change, evidence]
+
+relations:
+  - question_tests
+  - hypothesis_supports
+  - hypothesis_opposes
+  - world_model_instantiates
+  - world_model_has_view
+  - view_maps_physical
+  - view_uses_interface
+  - view_depends_on_cognition
+  - view_records_data
+  - view_uses_symbolic
+  - experiment_tests
+  - experiment_observes
+  - observation_generates_evidence
+  - evidence_supports
+  - evidence_refutes
+  - evidence_qualifies
+  - counterexample_challenges
+  - evidence_updates_thesis
+
+layers:
+  canonical_dependency:
+    - physical
+    - interface
+    - cognition
+    - data
+    - symbolic
+  note: This is a dependency/generation order, not a claim that the World is a fixed hierarchy.
+
+states:
+  experiment: [proposed, running, complete, inconclusive, rejected]
+  hypothesis: [proposed, supported, weakened, refuted]
+  evidence: [observed, replicated, disputed, superseded]
+  thesis: [proposed, active, qualified, rejected]
+
+polarity:
+  - supports
+  - refutes
+  - qualifies
+  - neutral
