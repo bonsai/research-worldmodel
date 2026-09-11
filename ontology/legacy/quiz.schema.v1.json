@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "quiz.schema.v1.json",
+  "title": "JSON Quiz Schema v1",
+  "description": "マルチフォーマットクイズスキーマ v1 — 問題・回答・ヒント・選択肢・解説・バリデーション",
+  "version": "1.0.0",
+  "definitions": {
+    "qid": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+    "difficulty": {"type": "string", "enum": ["easy", "medium", "hard"], "default": "medium"},
+    "qtype": {"type": "string", "enum": ["single", "multiple", "text", "ordering", "matching"], "default": "single"},
+    "answer_single": {"type": "integer", "minimum": 0},
+    "answer_multiple": {"type": "array", "items": {"type": "integer", "minimum": 0}, "minItems": 1},
+    "answer_text": {"type": "string", "minLength": 1},
+    "answer_ordering": {"type": "array", "items": {"type": "integer", "minimum": 0}},
+    "answer_matching": {"type": "object", "patternProperties": {"^[0-9]+$": {"type": "integer", "minimum": 0}}, "additionalProperties": false},
+    "question_base": {
+      "type": "object",
+      "properties": {
+        "id": {"$ref": "#/definitions/qid"},
+        "type": {"$ref": "#/definitions/qtype"},
+        "question": {"type": "string", "minLength": 1},
+        "choices": {"type": "array", "minItems": 2, "items": {"type": "string", "minLength": 1}},
+        "hint": {"type": "string"},
+        "explanation": {"type": "string"},
+        "section": {"type": "string"},
+        "difficulty": {"$ref": "#/definitions/difficulty"},
+        "tags": {"type": "array", "items": {"type": "string"}}
+      },
+      "required": ["id", "question", "choices"]
+    }
+  }
+}
