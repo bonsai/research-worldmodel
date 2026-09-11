@@ -24,9 +24,27 @@ corpus/          papers, models, datasets, systems
 experiments/     experiment protocols and results
 evidence/        normalized evidence records
 theses/          current claims and revisions
-ontology/        lab-specific schemas and mappings
+ontology/        lab-specific schemas, legacy mappings, and ontology candidates
+datasets/        reusable research datasets, including quiz corpora
+migration/       provenance and organization of older world-model repositories
 lab/             reproducibility and experiment conventions
 ```
+
+## Canonical / research boundary
+
+- `bonsai/world` — **canonical decision layer**. Only accepted concepts, definitions, and current ontology decisions belong here.
+- `research-worldmodel` — **research layer**. Historical ontologies, alternative models, quizzes, datasets, experiments, evidence, and unresolved or rejected ideas belong here.
+
+A research artifact is not promoted to `bonsai/world` until it has survived comparison, evidence, and evaluation.
+
+## Absorbed legacy material
+
+The research corpus now includes selected artifacts from:
+
+- `bonsai/world-ontology` — legacy structured-world schema.
+- `bonsai/world-model2` — WorldModel DSL quiz schema and 20-question DSL quiz corpus.
+
+See [`migration/`](migration/) for provenance and the migration policy.
 
 ## Relationship to bonsai research system
 
@@ -45,10 +63,10 @@ Map representative World Model families to the five-layer ontology and explicitl
 4. counterexamples,
 5. explanatory value gained or lost.
 
-Current literature already shows that the World Model field is fragmented across internal representation, future prediction, generative simulation, embodied systems, and action-coupled models. citeturn0academia25turn0search4
+Current literature already shows that the World Model field is fragmented across internal representation, future prediction, generative simulation, embodied systems, and action-coupled models.
 
 The lab therefore tests whether a view-oriented ontology can unify comparisons without pretending that all World Models are the same kind of system.
 
 ## Status
 
-Research lab scaffold initialized. See [Issue #1](https://github.com/bonsai/research-worldmodel/issues/1) for the ADR.
+Research lab scaffold initialized. Historical ontology and quiz artifacts are now being consolidated here for comparison and reuse.
