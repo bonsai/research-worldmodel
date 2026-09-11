@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/world.schema.json",
+  "title": "World Ontology",
+  "description": "A schema for modeling structured worlds.",
+  "type": "object",
+  "required": ["id", "title", "entities", "scenes", "relations"],
+  "properties": {
+    "id": {"type": "string"},
+    "title": {"type": "string"},
+    "description": {"type": "string"},
+    "entities": {"type": "array", "items": {"$ref": "#/$defs/entity"}},
+    "scenes": {"type": "array", "items": {"$ref": "#/$defs/scene"}},
+    "relations": {"type": "array", "items": {"$ref": "#/$defs/relation"}}
+  },
+  "$defs": {
+    "entity": {
+      "type": "object",
+      "required": ["id", "type", "name"],
+      "properties": {
+        "id": {"type": "string"},
+        "type": {"type": "string"},
+        "name": {"type": "string"},
+        "properties": {"type": "object"}
+      }
+    },
+    "scene": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": {"type": "string"},
+        "place": {"type": "string"},
+        "entities": {"type": "array", "items": {"type": "string"}},
+        "dialogue": {"type": "array"},
+        "events": {"type": "array"},
+        "choices": {"type": "array"}
+      }
+    },
+    "relation": {
+      "type": "object",
+      "required": ["subject", "predicate", "object"],
+      "properties": {
+        "subject": {"type": "string"},
+        "predicate": {"type": "string"},
+        "object": {"type": "string"}
+      }
+    }
+  }
+}
