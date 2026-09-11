@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anomalyco/opencode/main/schemas/questions.schema.json",
+  "source": "bonsai/world-model2/wiki/make-quiz/questions.json",
+  "questions": [
+    {"id":"wm-dsl-001","question":"WorldModel DSL のファイル形式は？","choices":["YAML（.yaml）","JSONL（.jsonl）— 1行1JSON","XML（.xml）","CSV（.csv）"],"section":"DSL形式","difficulty":"easy"},
+    {"id":"wm-dsl-002","question":"JSONL でコメント行を書くには行頭に何をつける？","choices":["#","--","//","<!--"],"section":"DSL形式","difficulty":"easy"},
+    {"id":"wm-dsl-003","question":"WorldModel DSL で定義できるエンティティの type として正しいものはどれ？","choices":["class, field, method, relation, enum","class, attribute, operation, relation, enum","class, property, function, relation, enum","object, attribute, method, association, enum"],"section":"DSLエンティティ","difficulty":"easy"},
+    {"id":"wm-dsl-004","question":"class エンティティに必須のフィールドは？","choices":["id, extends, abstract","id","type, id","id, description"],"section":"DSLエンティティ","difficulty":"easy"},
+    {"id":"wm-dsl-005","question":"attribute エンティティに必須のフィールドは？（複数選択）","choices":["class, name, datatype","class, name","name, datatype","type, class, name, datatype"],"section":"DSLエンティティ","difficulty":"easy"},
+    {"id":"wm-dsl-006","question":"relation の relationType として無効なものは？","choices":["association","composition","realization","dependence"],"section":"DSLエンティティ","difficulty":"medium"},
+    {"id":"wm-dsl-007","question":"enum エンティティの validation ルールとして正しいものは？","choices":["values は1つ以上必要","values は2つ以上必要","values は空でも可","values は3つ以上必要"],"section":"DSLエンティティ","difficulty":"medium"},
+    {"id":"wm-dsl-008","question":"パーサ（parse.py）が resolve_references で行わない檢查は？","choices":["継承元クラスの存在確認","循環継承の検出","relation の from/to が存在するクラスか","属性名の重複檢查"],"section":"ツールチェーン","difficulty":"medium"},
+    {"id":"wm-dsl-009","question":"複数の .world.jsonl ファイルを同時にパースしたとき、クラスIDの重複を防ぐために使われている方法は？","choices":["ファイル名で名前空間を切る","クラスIDに言語プリフィックス（JAVA_, RUBY_ 等）をつける","コンパイルエラーにする","後勝ちで上書きする"],"section":"命名規則","difficulty":"medium"},
+    {"id":"wm-dsl-010","question":"graph.py が出力できる形式として正しい組み合わせは？","choices":["dot, json, png","dot, json, png, svg, plantuml, mermaid","dot, json, svg","json, png, svg"],"section":"ツールチェーン","difficulty":"easy"},
+    {"id":"wm-dsl-011","question":"MCP サーバー（mcp_server.py）が提供するツールの数は？","choices":["5","7","9","12"],"section":"MCP","difficulty":"medium"},
+    {"id":"wm-dsl-012","question":"MCP サーバーのツールで、PlantUML または Mermaid の図を生成できるのはどれ？","choices":["world_stats","diff_worlds","visualize","export_json"],"section":"MCP","difficulty":"easy"},
+    {"id":"wm-dsl-013","question":"diff.py が2つの世界モデル間で比較する項目として含まれないものは？","choices":["クラスの共通・差分","Jaccard 類似度","リレーションの共通・差分","コードの実行速度"],"section":"ツールチェーン","difficulty":"medium"},
+    {"id":"wm-dsl-014","question":"memory-world で定義されている、突然の感覚入力で誘発される記憶を表すクラスは？","choices":["MEM_RecurringDream","MEM_Flashback","MEM_Daydream","MEM_FirstEncounter"],"section":"memory-world","difficulty":"medium"},
+    {"id":"wm-dsl-015","question":"最初に作成した世界モデルファイルの名前は？","choices":["rpg.world.jsonl","social-media.world.jsonl","java-glossary.world.jsonl","go.world.jsonl"],"section":"歴史","difficulty":"hard"},
+    {"id":"wm-dsl-016","question":"PHILOSOPHY.md で言及されている4人の哲学者・思想家は？","choices":["ウィトゲンシュタイン, ソシュール, アリストテレス, 荒川修作","デカルト, カント, ニーチェ, ハイデガー","プラトン, ソシュール, ウィトゲンシュタイン, ドゥルーズ","ウィトゲンシュタイン, フッサール, ソシュール, ラカン"],"section":"哲学","difficulty":"hard"},
+    {"id":"wm-dsl-017","question":"MCP サーバーのポリグロット機能で、S式（S-expression）を出力するツールは？","choices":["js_cytoscape","export_json","lisp_sexpr","visualize"],"section":"MCP","difficulty":"medium"},
+    {"id":"wm-dsl-018","question":"ts.world.jsonl で定義されている型システムを司るクラスは？","choices":["TS_Compiler","TS_TypeSystem","TS_Type","TS_TsConfig"],"section":"TypeScript世界","difficulty":"medium"},
+    {"id":"wm-dsl-019","question":"parse.py が JSONL の1行をパースできなかったとき、どの例外が投げられる？","choices":["ParseError","JSONDecodeError","ValidationError","SyntaxError"],"section":"ツールチェーン","difficulty":"hard"},
+    {"id":"wm-dsl-020","question":"dev.ts（開発サーバー）のホットリロードはファイル変更をどのように検出している？","choices":["chokidar ライブラリ","Node.js fs.watch","Bun.watch","setInterval によるポーリング"],"section":"開発環境","difficulty":"medium"}
+  ]
+}
