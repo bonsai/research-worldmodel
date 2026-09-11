@@ -1,0 +1,27 @@
+{
+  "quiz": "WorldModel DSL — 新人エージェント理解度テスト",
+  "total": 20,
+  "source": "bonsai/world-model2/wiki/make-quiz/answers.json",
+  "answers": {
+    "wm-dsl-001": 1,
+    "wm-dsl-002": 2,
+    "wm-dsl-003": 1,
+    "wm-dsl-004": 2,
+    "wm-dsl-005": 0,
+    "wm-dsl-006": 3,
+    "wm-dsl-007": 1,
+    "wm-dsl-008": 3,
+    "wm-dsl-009": 1,
+    "wm-dsl-010": 1,
+    "wm-dsl-011": 2,
+    "wm-dsl-012": 2,
+    "wm-dsl-013": 3,
+    "wm-dsl-014": 1,
+    "wm-dsl-015": 0,
+    "wm-dsl-016": 0,
+    "wm-dsl-017": 2,
+    "wm-dsl-018": 1,
+    "wm-dsl-019": 2,
+    "wm-dsl-020": 1
+  }
+}
